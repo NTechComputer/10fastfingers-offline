@@ -1,7 +1,7 @@
 {
   "background_color": "#add5ff",
   "description": "Offline 10FastFingers",
-  "display": "standalone",
+  "display": "fullscreen",
   "icons": [
     {
       "src": "logo.png",
