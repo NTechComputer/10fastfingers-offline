@@ -1,8 +1,8 @@
 self.addEventListener('install', (e) => {
   e.waitUntil(
     caches.open('10fastfingers-offline').then((cache) => cache.addAll([
-      '/10fastfingers-offline/',
-      '/10fastfingers-offline/index.html'
+      '/10fastfingers-offline/?v=1',
+      '/10fastfingers-offline/index.html?v=1'
     ])),
   );
 });
