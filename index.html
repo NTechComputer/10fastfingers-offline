@@ -9,7 +9,8 @@
     if(localStorage.lastUpadate){
         if(now - Number(localStorage.lastUpadate) > 10000){
             localStorage.lastUpadate = now;
-            window.location.reload()
+            console.log("updated");
+            window.location.reload();
         }
     }
     else{
