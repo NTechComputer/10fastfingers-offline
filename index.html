@@ -158,8 +158,7 @@
     #auswertung-result #result-table td.name{font-size:16px;padding-left:20px;width:160px}
     #auswertung-result #result-table td.value{font-size:16px;text-align:right;padding-right:20px}
     #auswertung-result p{font-size:1.4em;margin-top:20px;text-align:center}
-    #auswertung-share h3{color:#fff;background:#4d7f9f;font-size:16px;padding:8px 15px;font-weight:bold;text-shadow:1px 1px 1px #333;filter:dropshadow(color=#333333,offx=1,offy=1);-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;-moz-border-radius-bottomright:0;-moz-border-radius-bottomleft:0;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;background:#5e91b3;background:-moz-linear-gradient(top,#5e91b3 0,#407191 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5e91b3),color-stop(100%,#407191));background:-webkit-linear-gradient(top,#5e91b3 0,#407191 100%);background:-o-linear-gradient(top,#5e91b3 0,#407191 100%);background:-ms-linear-gradient(top,#5e91b3 0,#407191
-
+    #auswertung-share h3{color:#fff;background:#4d7f9f;font-size:16px;padding:8px 15px;font-weight:bold;text-shadow:1px 1px 1px #333;filter:dropshadow(color=#333333,offx=1,offy=1);-moz-border-radius-topleft:3px;-moz-border-radius-topright:3px;-moz-border-radius-bottomright:0;-moz-border-radius-bottomleft:0;-webkit-border-radius:3px 3px 0 0;border-radius:3px 3px 0 0;background:#5e91b3;background:-moz-linear-gradient(top,#5e91b3 0,#407191 100%);background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#5e91b3),color-stop(100%,#407191));background:-webkit-linear-gradient(top,#5e91b3 0,#407191 100%);background:-o-linear-gradient(top,#5e91b3 0,#407191 100%);background:-ms-linear-gradient(top,#5e91b3 0,#407191 100%)}
  .spinner{
     display: flex;
     justify-content: center;
@@ -310,6 +309,7 @@
     {
         //wird beim start und beim klick auf "restart" aufgerufen
         //ruft initialisierungsfunktionen auf und setzt werte zurÃ¼ck auf den startwert
+        document.querySelector("#loader").style.display = "inline";
         word_string = '';
         words = '';
         row1_string = '';
@@ -354,8 +354,10 @@
         document.querySelector("#row1").style.top = "1px";
         //$("#timer").removeClass("off");
         
-        document.querySelector("#words").style.display = "block";
-        document.querySelector("#loader").style.display = "none";
+        setTimeout(function(){ 
+            document.querySelector("#words").style.display = "block";
+            document.querySelector("#loader").style.display = "none";
+        }, 1500)
 
         window.clearInterval(setval);
         setval = "";
@@ -534,8 +536,10 @@
         document.querySelector("#result-table #keystrokes span.all").innerText = result_keystrokes_correct + result_keystrokes_wrong;
         document.querySelector("#result-table #correct td.value").innerText = result_correct;
         document.querySelector("#result-table #wrong td.value").innerText = result_wrong;
-
-        document.querySelector("#auswertung-result").style.display = "inline";
+        setTimeout(function(){ 
+            document.querySelector("#loader").style.display = "none";
+            document.querySelector("#auswertung-result").style.display = "inline";
+        }, 1500)
     }
 
     //befÃ¼llt #row1 und #row2 mit neuen WÃ¶rtern
